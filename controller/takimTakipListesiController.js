@@ -17,45 +17,13 @@ exports.getTakimTakipListesi = async (req, res) => {
 exports.createTakimTakipListesi = async (req, res) => {
     try {
 
-       
         const takim = new TakimTakipListesi(req.body);
         const result = await takim.save()
         res.json({
             success: true,
             result
         })
-        // console.log("selam");
-        // const XLSX = require('xlsx')
-        // const workbook =XLSX.readFile('excelyeni.xlsx',{cellDates:true});
-        // const sheet_name_list = workbook.SheetNames;
-        // var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-        
-        // console.dir(xlData,{ maxArrayLength: null });
-        // xlData.forEach(async (data) => {
-        
-           
-        //     const takim = new TakimTakipListesi({
-            
-        //         seriNo: data['TAKIM SERİ NO'],
-        //         tanim: data['TAKIM TANIMI'],
-        //         parcaNo: data['PARÇA NO'],
-        //         talepEden: data['TALEP EDEN '],
-        //         talepAdeti: data['TALEP ADETİ'],
-        //         stoktaKalan: data['STOKTA KALAN'],
-        //         talepTarihi: data['TALEP TARİHİ-SAATİ'],
-        //         teslimAdeti: data['TESLİM ADETİ'],
-        //         teslimTarihi: data['TALEP TARİHİ-SAATİ'],
-        //         guncelStok: data['GÜNCEL STOK'],
-          
-        //   });
-        //     //   console.log(takim);
-        //   const result = await takim.save()
-        //   console.log(result)
-        // })
-        // res.json({
-        //     success: true,
-        //     xlData
-        // })
+       
     } catch (error) {
         console.log(error,error);
         res.json({

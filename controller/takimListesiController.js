@@ -23,32 +23,7 @@ exports.createTakimListesi = async (req, res) => {
             success: true,
             result
         })
-        // console.log("selam");
-        // const XLSX = require('xlsx')
-        // const workbook =XLSX.readFile('excelyeni.xlsx',{cellDates:true});
-        // const sheet_name_list = workbook.SheetNames;
-        // var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]]);
-        
-        // // console.dir(xlData,{ maxArrayLength: null });
-        // xlData.forEach(async (data) => {
-        
-           
-        //     const takim = new TakimListesi({
-            
-        //         siraNo: data['Sıra No'],
-        //         seriNo: data['Takım  Seri No'],
-        //         tanim: data['Takım Tanımı '],
-        //         takimAdeti: data['Takım Adeti']
-          
-        //   });
-        //     //   console.log(takim);
-        //   const result = await takim.save()
-        //   console.log(result)
-        // })
-        // res.json({
-        //     success: true,
-        //     xlData
-        // })
+       
     } catch (error) {
         console.log(error,error);
         res.json({
