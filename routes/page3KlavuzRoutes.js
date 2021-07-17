@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const klavuzContoller = require('../controller/klavuzContoller')
+const klavuzContoller = require('../controller/klavuzController')
 
 
 router.route('/').get(klavuzContoller.getBilenmisTakimListesi).post(klavuzContoller.createBilenmisTakim)
