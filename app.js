@@ -17,28 +17,30 @@ const page3BilenmisTakimRouter = require('./routes/page3BilenmisTakimRoutes')
 const page3KlavuzRouter = require('./routes/page3KlavuzRoutes')
 const page3RaybaRouter = require('./routes/page3RaybaRoutes')
 const page4Router = require('./routes/page4Routes')
+const authRouter = require('./routes/authRoutes')
 
+const auth = require('./verifyToken')
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api/v1/auth',authRouter)
+app.use('/api/v1/takim-takip-listesi',auth,takimTakipListesiRouter)
 
-app.use('/api/v1/takim-takip-listesi',takimTakipListesiRouter)
-
-app.use('/api/v1/takim-listesi',takimListesiRouter)
-app.use('/api/v1/bilenmis-takim-listesi',bilenmisTakimListesiRouter)
-app.use('/api/v1/kullanilmis-takim-listesi',kullanilmisTakimRouter)
-app.use('/api/v1/r-takim-listesi',rTakimRouter)
-app.use('/api/v1/t-caki-takim-listesi',tCakiTakimRouter)
-app.use('/api/v1/bilenecek-takim',bilenecekTakimRouter)
-app.use('/api/v1/bilenecek-matkap',bilenecekMatkapRouter)
-app.use('/api/v1/page-2',page2Router)
-app.use('/api/v1/freeze-takim-listesi',freezeTakimListesiRouter)
-app.use('/api/v1/taramalar-ve-uclar',taramalarVeUclarRouter)
-app.use('/api/v1/parmak-freeze',parmakFreezeRouter)
-app.use('/api/v1/page3-bilenmis-takim',page3BilenmisTakimRouter)
-app.use('/api/v1/page3-klavuz',page3KlavuzRouter)
-app.use('/api/v1/page3-rayba',page3RaybaRouter)
-app.use('/api/v1/page4',page4Router)
+app.use('/api/v1/takim-listesi',auth,takimListesiRouter)
+app.use('/api/v1/bilenmis-takim-listesi',auth,bilenmisTakimListesiRouter)
+app.use('/api/v1/kullanilmis-takim-listesi',auth,kullanilmisTakimRouter)
+app.use('/api/v1/r-takim-listesi',auth,rTakimRouter)
+app.use('/api/v1/t-caki-takim-listesi',auth,tCakiTakimRouter)
+app.use('/api/v1/bilenecek-takim',auth,bilenecekTakimRouter)
+app.use('/api/v1/bilenecek-matkap',auth,bilenecekMatkapRouter)
+app.use('/api/v1/page-2',auth,page2Router)
+app.use('/api/v1/freeze-takim-listesi',auth,freezeTakimListesiRouter)
+app.use('/api/v1/taramalar-ve-uclar',auth,taramalarVeUclarRouter)
+app.use('/api/v1/parmak-freeze',auth,parmakFreezeRouter)
+app.use('/api/v1/page3-bilenmis-takim',auth,page3BilenmisTakimRouter)
+app.use('/api/v1/page3-klavuz',auth,page3KlavuzRouter)
+app.use('/api/v1/page3-rayba',auth,page3RaybaRouter)
+app.use('/api/v1/page4',auth,page4Router)
 
 
 module.exports = app;

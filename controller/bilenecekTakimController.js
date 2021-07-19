@@ -17,7 +17,7 @@ exports.getBilenmisTakimListesi = async (req, res) => {
 exports.createBilenmisTakim = async (req, res) => {
     try {
 
-        const takim = new BilenecekMatkap(req.body);
+        const takim = new BilenecekTakim(req.body);
         const result = await takim.save()
         res.json({
             success: true,
